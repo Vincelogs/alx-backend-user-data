@@ -33,3 +33,15 @@ def test_unauthorized() -> str:
         str: 401 status code
     """
     abort(401)
+
+@app_views.route('/forbidden/', strict_slashes=False)
+def handle_forbidden() -> str:
+    """handles forbidden requests
+
+    Args:
+        error (obj): error obj
+
+    Returns:
+        str: status code -> 403
+    """
+    abort(403)

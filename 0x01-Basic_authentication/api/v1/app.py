@@ -43,6 +43,7 @@ def filter_request():
     if auth.current_user(request) is None:
         abort(403)
 
+
 @app.errorhandler(401)
 def unauthorized(error) -> str:
     """unauthorized request handler
@@ -65,6 +66,7 @@ def forbidden(error) -> str:
         str: status message and code
     """
     return jsonify({"error": "Forbidden"}), 403
+
 
 @app.errorhandler(404)
 def not_found(error) -> str:
